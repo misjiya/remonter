@@ -1,6 +1,6 @@
 <?php
-	include($_SERVER['DOCUMENT_ROOT'].'/hheart/hh/config.php');
-	include($_SERVER['DOCUMENT_ROOT'].'/hheart/hh/auth.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/remonter/hh/config.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/remonter/hh/auth.php');
 
 	include(CONTROLLER_ROOT.'generic.php');
 	$controller = new Generic();

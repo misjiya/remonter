@@ -1,15 +1,16 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT']."/hheart/dating/db.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/remonter/dating/db.php");
 class CommonHelper extends Db
 {
     public function fetchTopCities()
     {
+        $connection =  $this->conn();
         $result=array();
         try 
         {
-            $this->conn()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           
             $sql="SELECT id,name FROM  cities WHERE deleted=0 AND top=1 ORDER BY name ASC";
-            $prep = $this->conn()->prepare($sql);
+            $prep = $connection->prepare($sql);
             $prep->execute();
             $prep->setFetchMode(PDO::FETCH_ASSOC);
             $result=$prep->fetchAll();
@@ -23,12 +24,13 @@ class CommonHelper extends Db
     }
     public function fetchSeoContent($seoType='All')
     {
+        $connection = $this->conn();
         $result=array();
         try 
         {
-            $this->conn()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql="SELECT * FROM seo_containt WHERE deleted=0 AND seoType=:seoType";
-            $prep = $this->conn()->prepare($sql);
+            $prep = $connection->prepare($sql);
             $prep->bindParam(':seoType', $seoType);
             $prep->execute();
             $prep->setFetchMode(PDO::FETCH_ASSOC);
@@ -43,12 +45,12 @@ class CommonHelper extends Db
     }
     public function fetchGenericPages()
     {
+        $connection = $this->conn();
         $result=array();
         try 
         {
-            $this->conn()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql="SELECT * FROM generic_page WHERE deleted=0";
-            $prep = $this->conn()->prepare($sql);
+            $prep = $connection->prepare($sql);
             $prep->execute();
             $prep->setFetchMode(PDO::FETCH_ASSOC);
             $result=$prep->fetchAll();
@@ -62,12 +64,12 @@ class CommonHelper extends Db
     }
     public function fetchGenericContents($slug='')
     {
+        $connection = $this->conn();
         $result=array();
         try 
         {
-            $this->conn()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql="SELECT * FROM generic_page WHERE deleted=0 AND slug=:slug";
-            $prep = $this->conn()->prepare($sql);
+            $prep = $connection->prepare($sql);
             $prep->bindParam(':slug', $slug);
             $prep->execute();
             $prep->setFetchMode(PDO::FETCH_ASSOC);
@@ -90,48 +92,43 @@ class CommonHelper extends Db
         return json_encode($DATA);
 
     }
-    function validateUser($user){
-
+    function encrypt_decrypt($value,$type){
+        if($type=="encrypt"){
+            $newp = base64_encode($value);
+            $ssec = openssl_encrypt($newp,"AES-128-ECB","MbQeThWm#@^");
+            return $ssec;
+        }else if($type=="decrypt"){
+            $dcp = openssl_decrypt($value,"AES-128-ECB","MbQeThWm#@^");
+            $dp = base64_decode($dcp);
+            return $dp;
+        }
     }
-    function duplicateUser($email,$username){
-        $sql="SELECT userid FROM app_userdata WHERE deleted=0 AND (email=:email OR  username=:username)";
-        $prep = $this->conn()->prepare($sql);
-        $prep->bindParam(':email', $email);
-        $prep->bindParam(':username', $username);
-        $prep->execute();
-        $prep->setFetchMode(PDO::FETCH_ASSOC);
-        $result=$prep->fetch();
-        return $result['userid'];
-    }
-    
-    public function registerUser($attribute)
-    {
-        $result=false;
-        try 
-        {
-            $this->conn()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            if(isset($attribute))
-            {
-                $sql="INSERT INTO app_userdata (username,`password`,email,gender,age,city,reg_date) VALUES (:username,:password,:email,:gender,:age,:city,:date)";
-                $gender=($attribute['looking']=="Female")?"Male":"Female";
-                $prep = $this->conn()->prepare($sql);
+    public function insertUserProfileOnGender($attribute){
+        $connection = $this->conn();
+        try{
+            $gender=$attribute['gender'];
+            $userid=$attribute['userid'];
+            if(isset($gender) && ($gender=="Male" || $gender=="Female") && isset($userid) && $userid>0){
+                $table = "app_female_profile";
+                if($gender=="Male"){
+                    $table = "app_male_profile";
+                }
+                $date=date('Y-m-d');
+                $sql="INSERT INTO $table (userid,username,email,age,city,reg_date,state,country) VALUES (:userid,:username,:email,:age,:city,:date,:state,:country)";
+                $prep = $connection->prepare($sql);
+                $prep->bindParam(':userid', $userid);
                 $prep->bindParam(':username', $attribute['username']);
-                $prep->bindParam(':password', $attribute['password']);
                 $prep->bindParam(':email', $attribute['email']);
-                $prep->bindParam(':gender', $gender);
                 $prep->bindParam(':age', $attribute['age']);
+                $prep->bindParam(':country', $attribute['country']);
+                $prep->bindParam(':state', $attribute['state']);
                 $prep->bindParam(':city', $attribute['livein']);
                 $prep->bindParam(':date', $date);
                 $prep->execute();
-                $this->conn()->lastInsertId();
-                $result= true;
             }
-        }
-        catch(PDOException $e)
-        {
+        }catch(PDOException $e){
             echo $sql . "<br>" . $e->getMessage();
-            $result= false;
         }
-        return $result;
+        return $userid;
     }
 }

@@ -1,5 +1,5 @@
 <?php
-	include($_SERVER['DOCUMENT_ROOT'].'/hheart/dating/config.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/remonter/dating/config.php');
 	include(CONTROLLER_ROOT.'landing.php');
 	$controller = new Landing();
 	$helper = new commonHelper();
@@ -14,7 +14,7 @@
 					'email'			=>@$_POST['email'],
 					'livein'		=>@$_POST['livein'],
 					'username'		=>@$_POST['kgh9578@tghj'],
-					'password'		=>@$_POST['8h54jhgjh@7$'],
+					'password'		=>$helper->encrypt_decrypt(@$_POST['8h54jhgjh@7$'],'encrypt')
 			);
 			if(@$data['email']=="" || @$data['username']=="" || @$data['password']=="")
 			{
@@ -34,7 +34,7 @@
 					return ;
 				}
 
-				if($helper->duplicateUser(@$data['email'],@$data['username']))
+				if($controller->duplicateUser(@$data['email'],@$data['username']))
 				{
 					echo $helper->JSONResponse(ERROR,DUPLICATE_USER);
 				}
@@ -45,7 +45,7 @@
 						echo $helper->JSONResponse(SUCCESS,NEW_USER);
 				   }
 				   else{
-						echo $helper->JSONResponse(SUCCESS,INTERNAL_SERVER_ERROR);
+						echo $helper->JSONResponse(ERROR,INTERNAL_SERVER_ERROR);
 				   }
 					
 				}

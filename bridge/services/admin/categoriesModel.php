@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT']."/hheart/hh/db.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/remonter/hh/db.php");
 class CategoriesModel extends Db
 {
     public $insert_id=null;

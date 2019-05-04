@@ -1,5 +1,5 @@
 <?php
-	include($_SERVER['DOCUMENT_ROOT'].'/hheart/hh/config.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/remonter/hh/config.php');
 	include(CONTROLLER_ROOT.'login.php');
 	$controller = new Login();
 	if(isset($_POST) && !empty($_POST)){

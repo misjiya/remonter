@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT']."/hheart/hh/db.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/remonter/hh/db.php");
 class CommonHelper extends Db
 {
     public function fetchAllCountries()

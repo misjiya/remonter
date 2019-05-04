@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	define("BASE_URL","http://localhost/hheart/");
-	define("ROOT_DIR",$_SERVER['DOCUMENT_ROOT']."/hheart/");
+	define("BASE_URL","http://localhost/remonter/");
+	define("ROOT_DIR",$_SERVER['DOCUMENT_ROOT']."/remonter/");
 	define("TEMPLATE_ROOT",ROOT_DIR."/bridge/templates/admin/");
 	define("TEMPLATE_URL",BASE_URL."bridge/templates/admin/");
 

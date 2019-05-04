@@ -46,7 +46,7 @@
          </div>
     </div>    
     <div class="footer2">
-    <strong class="copyr">hhheart.com ©2019</strong>
+    <strong class="copyr">hremonter.com ©2019</strong>
 </div>
 <script src="<?=BASE_URL?>assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 <!-- Application Script don't touch this -->

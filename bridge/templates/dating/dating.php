@@ -69,7 +69,7 @@
                     <div class="sign-priv">
                         <p>By clicking the submit button above you expressly consent to 
                         our <a href="#">Privacy policy</a> including use of profiling to find your
-                        matches and you agree to our <a href="#">Terms of use</a>, and receive newsletters, accounts updates, offers sent by hheart.</p>
+                        matches and you agree to our <a href="#">Terms of use</a>, and receive newsletters, accounts updates, offers sent by remonter.</p>
                     </div>
                 </div> 
             </div>

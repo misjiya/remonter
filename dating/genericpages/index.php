@@ -1,6 +1,6 @@
 <?php 
-include($_SERVER['DOCUMENT_ROOT'].'/hheart/dating/config.php');
-include($_SERVER['DOCUMENT_ROOT'].'/hheart/bridge/helper/dating/commonHelper.php');
+include($_SERVER['DOCUMENT_ROOT'].'/remonter/dating/config.php');
+include($_SERVER['DOCUMENT_ROOT'].'/remonter/bridge/helper/dating/commonHelper.php');
 $helper=new CommonHelper();
 $GenericContents=$helper->fetchGenericContents(SLUG);
 $TITLE=$GenericContents['title'];
