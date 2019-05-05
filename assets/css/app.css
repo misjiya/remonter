@@ -201,7 +201,75 @@
   .b-img{
       height:100%;
   }
+  .upload-container{
+    width: 919px;
+    margin: 60px 0px 0px 205px;
+    position: absolute;
+    height: 100%;
+  }
   
+  .upl-ins-blck{
+    background: linear-gradient(273deg,#ad2e41,#721053);
+    color: white;
+    width:35%;
+    float:left;
+    height: 479px;
+  }
+  .upg-photo-blck{
+    width: 65%;
+    float: left;
+    border: 1px solid rosybrown;
+  }
+  .upl-ins-blck .msg{
+    font-size:14px;
+    padding: 0 0px 0px 5px;
+    text-align: center;
+  }
+.upg-title{
+  padding-bottom: 1px;
+  padding: 5px;
+  border-bottom: 1px solid rosybrown;
+}
+.upg-gline{
+  margin-top: 40px;
+  list-style-type: none;
+}
+ul.upg-gline li{
+  padding: 0 0 35px 0px;
+    color: lightyellow;
+}
+.upg-in{
+  border: 1px solid rosybrown;
+    
+    margin: 20px;
+    background: linear-gradient(273deg,#ad2e41,#721053);
+    padding:10px;
+}
+.mrtop-15{
+  margin-top:-15px;
+}
+.upg-photos{
+  height:150px;
+  border: 1px dotted greenyellow;
+}
+.upg-p-msg{
+  font-size: 14px;
+  text-align: center;
+}
+.upg-photos{
+  text-align: center;
+  vertical-align: middle;
+  padding: 4%;
+  font-size: 100px;
+  color: #cc4476;
+  cursor: pointer;
+}
+.sul{
+  border-top: 1px solid rosybrown;
+  padding: 10px 0px 0px 0px;
+  font-size: 14px;
+  text-align: center;
+}
   @media only screen and (min-width: 600px) {
     /* For tablets: */
     .col-s-1 {width: 8.33%;}
@@ -337,6 +405,24 @@
             vertical-align: middle;
             cursor: pointer;
       }
+    .btn-defalut{
+        background-color: #9a9796;
+        color: #fff;
+        padding: 12px 14px;
+        height: 40px;
+        border-radius: 4px;
+        border: none;
+        width: 100%;
+        box-shadow: 1px 1px 3px rgba(0,0,0,.3);
+        position: relative;
+        font-size: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        outline: none;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+    }
   .sign-priv p{
       font-size: 11px;
       text-align: justify;
