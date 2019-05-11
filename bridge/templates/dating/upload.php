@@ -8,33 +8,54 @@
             <div class="upg-title"><h3 class="t-center">GUIDELINES</h3></div>
             <p class="msg">Upload your photos to get more focused here and get ready to meet new people.</p>
             <ul class="upg-gline">
-                <li>Your own photos</li>
-                <li>Good quality photos</li>
-                <li>Ignore obscene photos</li>
-                <li>Keep changing your photos</li>
+                <li><div class="g-line1"></div> <div class="g-txt">Your own photos</div></li>
+                <li><div class="g-line2"></div> <div class="g-txt">Good quality photos</div></li>
+                <li><div class="g-line3"></div> <div class="g-txt">Ignore obscene photos</div></li>
+                <li><div class="g-line4"></div> <div class="g-txt">Keep changing your photos</div></li>
             </ul>
-            <p class="sul">We will keep you photos safe and secure, only visible to recommended profiles</p>
+            <div class="msg-secure"></div><div><p class="sul">We will keep you photos safe and secure, only visible to recommended profiles</p></div>
         </div>
         <div class="upg-photo-blck">
             <div class="upg-in">
                 <form id="uploadPic" method="post"enctype="multipart/form-data" >
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="upg-photos">
-                                <span>+</span>
-                                <input id="photo1" type="file" name="photo1" />
-                            </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="upg-photos">
+                            <span>+</span>
+                            <input id="photo1" type="file" name="photo1" />
+                        </div>
+                        <div class="upg-options">
+                            
+                            <ul>
+                                <li> System</li>
+                                <li> Facebook</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="col-4">
                         <div class="upg-photos">
                             <span>+</span>
                             <input id="photo2" type="file" name="photo2" />
                         </div>
+                        <div class="upg-options">
+                            
+                            <ul>
+                                <li> System</li>
+                                <li> Facebook</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="col-4">
                         <div class="upg-photos">
                             <span>+</span>
                             <input id="photo3" type="file" name="photo3" />
+                        </div>
+                        <div class="upg-options">
+                            
+                            <ul>
+                                <li> System</li>
+                                <li> Facebook</li>
+                            </ul>
                         </div>
                     </div>
                 </div> 
@@ -44,17 +65,38 @@
                             <span>+</span>
                             <input id="photo4" type="file" name="photo4" />
                         </div>
+                        <div class="upg-options">
+                            
+                            <ul>
+                                <li> System</li>
+                                <li> Facebook</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="col-4">
                         <div class="upg-photos">
                             <span>+</span>
                             <input id="photo5" type="file" name="photo5" />
                         </div>
+                        <div class="upg-options">
+                            
+                            <ul>
+                                <li> System</li>
+                                <li> Facebook</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="col-4">
                         <div class="upg-photos">
                             <span>+</span>
                             <input id="photo6" type="file" name="photo6" />
+                        </div>
+                        <div class="upg-options">
+                           
+                            <ul>
+                                <li> System</li>
+                                <li> Facebook</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

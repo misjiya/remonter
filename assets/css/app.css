@@ -236,8 +236,77 @@
   list-style-type: none;
 }
 ul.upg-gline li{
-  padding: 0 0 35px 0px;
+  padding: 0 0 30px 0px;
     color: lightyellow;
+}
+ul.upg-gline li .g-line1{
+  background-image: url('../img/icons/ownimg.png');
+  background-size: cover;
+  width:40px;
+  height: 40px;
+  float:left;
+}ul.upg-gline li .g-line2{
+  background-image: url('../img/icons/highquality.png');
+  background-size: cover;
+  width:40px;
+  height: 40px;
+  float:left;
+}ul.upg-gline li .g-line3{
+  background-image: url('../img/icons/banned.png');
+  background-size: cover;
+  width:40px;
+  height: 40px;
+  float:left;
+}ul.upg-gline li .g-line4{
+  background-image: url('../img/icons/keepchanging.png');
+  background-size: cover;
+  width:40px;
+  height: 40px;
+  float:left;
+}ul.upg-gline li .g-txt{
+  margin: 0px 0px 0px 50px;
+  padding-top: 10px;
+}
+.msg-secure{
+  background-image: url('../img/icons/safe.png');
+  background-size: cover;
+  width:40px;
+  height: 40px;
+  float:left;
+  margin: 10px 0px 0px 20px;
+}
+
+.upg-options{
+    background: #000000b5;
+    font-size: 16px;
+    height: 150px;
+    color: white;
+    width: 148px;
+    margin-top: -150px;
+    position: absolute;
+}
+.upg-box{
+  position: relative;
+}
+.upg-options ul{
+  padding:10px;
+  
+}
+.upg-options ul li{
+  border-bottom: 1px dotted rosybrown;
+  padding: 5px 0px 5px 10px;
+  cursor: pointer;
+}
+
+.up-frm-title{
+  text-align: center;
+  
+  border-bottom: 1px dotted;
+  padding-bottom: 2px;
+}
+
+ul{
+  list-style-type:none;
 }
 .upg-in{
   border: 1px solid rosybrown;
@@ -267,9 +336,9 @@ ul.upg-gline li{
 }
 .sul{
   border-top: 1px solid rosybrown;
-  padding: 10px 10px 0px 10px;
-  font-size: 14px;
-  text-align: center;
+  padding: 15px 6px 0px 67px;
+  font-size: 12px;
+  text-align: justify;
 }
   @media only screen and (min-width: 600px) {
     /* For tablets: */
