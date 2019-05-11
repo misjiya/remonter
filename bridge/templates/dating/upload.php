@@ -17,34 +17,56 @@
         </div>
         <div class="upg-photo-blck">
             <div class="upg-in">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="upg-photos"><span>+</span></div>
+                <form id="uploadPic" method="post"enctype="multipart/form-data" >
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="upg-photos">
+                                <span>+</span>
+                                <input id="photo1" type="file" name="photo1" />
+                            </div>
                     </div>
                     <div class="col-4">
-                        <div class="upg-photos"><span>+</span></div>
+                        <div class="upg-photos">
+                            <span>+</span>
+                            <input id="photo2" type="file" name="photo2" />
+                        </div>
                     </div>
                     <div class="col-4">
-                        <div class="upg-photos"><span>+</span></div>
+                        <div class="upg-photos">
+                            <span>+</span>
+                            <input id="photo3" type="file" name="photo3" />
+                        </div>
                     </div>
                 </div> 
                 <div class="row">
                     <div class="col-4">
-                        <div class="upg-photos"><span>+</span></div>
+                        <div class="upg-photos">
+                            <span>+</span>
+                            <input id="photo4" type="file" name="photo4" />
+                        </div>
                     </div>
                     <div class="col-4">
-                        <div class="upg-photos"><span>+</span></div>
+                        <div class="upg-photos">
+                            <span>+</span>
+                            <input id="photo5" type="file" name="photo5" />
+                        </div>
                     </div>
                     <div class="col-4">
-                        <div class="upg-photos"><span>+</span></div>
+                        <div class="upg-photos">
+                            <span>+</span>
+                            <input id="photo6" type="file" name="photo6" />
+                        </div>
                     </div>
                 </div>
+                <input type="hidden" value="upload_image" name="type">
+                <button style="display:none;" class="upload_images">SUBMIT</button>
+                </form>
                 <div class="row">
                     <div class="col-3 mrtop-15">
                         <div class="btn-defalut">Skip</div>
                     </div>
                     <div class="col-9 mrtop-15">
-                        <div class="signup-btn-reg">Proceed</div>
+                        <div class="signup-btn-reg upload_photo">Proceed</div>
                     </div>
                 </div>
             </div>
@@ -53,6 +75,6 @@
     </div>  
     
 </div>
-<?//php include_once(INC.'footer.php');?>
+<?php include_once(INC.'bottom-footer.php');?>
 </body>
 </html>

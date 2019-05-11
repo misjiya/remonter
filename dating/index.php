@@ -51,6 +51,26 @@
 				}
 			}
 		}
+		else if($_POST['type']=="upload_image")
+		{
+			$target_dir = __DIR__."/images/";
+			$filetype = array('image/jpeg','image/jpg','image/png','image/gif','image/PNG','image/JPEG','image/JPG');
+			
+			
+			$uploaded=false;
+			print_r($_FILES);
+			for($i=0;$i<count($_FILES);$i++)
+			{
+				echo $count=$i+1;
+				//----------------Uploads Photo--------------------//
+				$photoType=$_FILES['photo'.$count]['type'];
+				$photoSize=$_FILES['photo'.$count]['size'];
+				$image="photo".$count;
+				if (in_array($photoType, $filetype) && $photoSize> 0 && $photoSize <1000001){
+					$uploaded=$helper->uploadImage($target_dir,$image,$source='UPLOAD',$id="102145");
+				}
+			}
+		}
 	}
 	else{
 		$controller->loadListView();

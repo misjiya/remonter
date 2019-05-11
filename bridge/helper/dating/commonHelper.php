@@ -131,4 +131,34 @@ class CommonHelper extends Db
         }
         return $userid;
     }
+
+    public function uploadImage($target_dir,$image,$source='',$userid=''){
+        $connection = $this->conn();
+        $response=false;
+        try{
+            if(isset($target_dir) && isset($image) && isset($source) && isset($userid)) 
+            {
+                $temp = explode(".", $_FILES[$image]["name"]);
+                $newfilename = round(microtime(true)).'-'.$userid. '.' . end($temp);
+                $target_file = $target_dir . basename($newfilename);
+                if (move_uploaded_file($_FILES[$image]["tmp_name"], $target_file)) 
+                {
+                    $date=date('Y-m-d');
+                    $sql="INSERT INTO app_upload_file (userid,file_path,file_source,uploaded_date) VALUES (:userid,:file_path,:file_source,:date)";
+                    $prep = $connection->prepare($sql);
+                    $prep->bindParam(':userid', $userid);
+                    $prep->bindParam(':file_path', $target_file);
+                    $prep->bindParam(':file_source', $source);
+                    $prep->bindParam(':date', $date);
+                    $prep->execute();
+                    $response=true;
+                }
+            }           
+            
+        }catch(PDOException $e){
+            echo $sql . "<br>" . $e->getMessage();
+        }
+        return $response;
+                
+    }
 }

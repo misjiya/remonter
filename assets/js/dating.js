@@ -106,4 +106,26 @@ $(document).ready(function(){
         var pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
         return pattern.test(email);
     }
+
+    $("form#uploadPic").submit(function(e) {
+        e.preventDefault();    
+        var formData = new FormData(this);
+    
+        $.ajax({
+            url:BASEURL+"dating/",
+            type: 'POST',
+            data: formData,
+            success: function (data) {
+                alert(data)
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    });
+    
+
+    $(".upload_photo").click(function(){
+       $(".upload_images").trigger('click');
+    });
 });
